@@ -8,21 +8,28 @@
     <link rel="stylesheet" href="css/style.css" />
     <script defer src="js/timeTrackObj.js"></script>
     <script defer src="js/timeTrackClass.js"></script>
+    <script defer src="js/timeTrackAlarm.js"></script>
   </head>
   <body>
     <div class="container">
       <div class="content">
         <div class="controls">
           <a href="" class="controls__btn">STOP</a>
-          <a href="" class="controls__btn">PLAY</a>
+          <a href="" class="controls__btn ">PLAY</a>
+          <a href="" class="controls__btn">PAUSE</a>
         </div>
         <div class="header">
         <div class="header__div">
-            <a class="header__btn">BREAK</a>
-            <div class="header__watch">00:00:00</div>
-        </div>
-        <div class="header__div">      
-            <h2 class="header__h2">PROJECT</h2>
+          <div class="header__div">
+            <a class="header__btn" id="playAlarm">PLAY</a>
+            <!-- <a class="header__btn" id="playAlarm">PAUSE</a> -->
+            <h2 class="header__h2">ALARM</h2>
+            <h3 class="header__h3" id="alarmTimer"></h3>
+          </div>
+          <div class="header__div">  
+            <a class="header__btn">SAVE</a>    
+            <input type="text" class="header__input--text" value="PROJECT"></input>
+          </div>
         </div>
         </div>
         <div class="watch">
@@ -37,12 +44,23 @@
         <nav class="navbar">
           <ul class="navbar__ul">
             <li class="navbar__li"><a href="" class="navbar__a">HISTORY</a></li>
-            <li class="navbar__li"><a href="" class="navbar__a">ALARM</a></li>
+            <li class="navbar__li"><a href="" class="navbar__a">CALENDAR</a></li>
             <li class="navbar__li"><a href="" class="navbar__a">BILLING</a></li>
             <li class="navbar__li"><a href="" class="navbar__a">INFO</a></li>
           </ul>
         </nav>
       </div>
+    </div>
+    <div class="alarm">
+      <a class="alarm__btn" id="setAlarm">SET ALARM</a>
+        <div class="alarm__watch">
+          <label for="alarmHours" class="alarm__label">HOURS</label>
+          <input type="number" maxlength="2" min="0" max="24" id="alarmHours" name="alarmHours" class="alarm__input" value="00"></input>
+          <label for="alarmMin" class="alarm__label">MINUTES</label>
+          <input type="number" maxlength="2" min="0" max="59" id="alarmMin" name="alarmMin" class="alarm__input" value="00" ></input>
+          <label for="alarmSec" class="alarm__label">SECS</label>
+          <input type="number" maxlength="2" min="0" max="59" id="alarmSec" name="alarmSec" class="alarm__input" value="00" ></input>
+        </div>
     </div>
   </body>
 </html>

@@ -207,7 +207,7 @@ body {
   align-items: center;
   gap: 1rem;
   grid-column: 1/2;
-  grid-row: 1/3;
+  grid-row: 2/3;
 }
 .controls__btn {
   background-color: lightgreen;
@@ -229,14 +229,24 @@ body {
   flex-flow: row nowrap;
   justify-content: left;
   align-items: center;
-  width: 100%;
-  gap: 1rem;
+  gap: 0.5rem;
 }
 .header__btn {
   background-color: lightblue;
 }
 .header__watch {
   background-color: lightcoral;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.header__input {
+  text-align: center;
+}
+.header__input--text {
+  background-color: red;
+  width: 100%;
 }
 .header__h2 {
   background-color: lightcoral;
@@ -310,4 +320,44 @@ body {
 }
 .navbar__li {
   background-color: purple;
+}
+
+.alarm {
+  padding: 0.5rem 0;
+  background-color: blue;
+  grid-column: 2/3;
+  grid-row: 1/2;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+.alarm__div {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: left;
+  align-items: center;
+  gap: 0.5rem;
+}
+.alarm__btn {
+  background-color: lightblue;
+}
+.alarm__watch {
+  background-color: lightcoral;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.alarm__input {
+  text-align: center;
+}
+.alarm__input--text {
+  background-color: red;
+  width: 100%;
+}
+.alarm__h2 {
+  background-color: lightcoral;
+  text-align: center;
 }/*# sourceMappingURL=style.css.map */
