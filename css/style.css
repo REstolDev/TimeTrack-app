@@ -183,7 +183,7 @@ body {
 
 .container {
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
   padding: 1rem;
@@ -233,6 +233,9 @@ body {
 }
 .header__btn {
   background-color: lightblue;
+  color: black;
+  font-size: large;
+  font-weight: bolder;
 }
 .header__watch {
   background-color: lightcoral;
@@ -352,10 +355,7 @@ body {
 }
 .alarm__input {
   text-align: center;
-}
-.alarm__input--text {
-  background-color: red;
-  width: 100%;
+  width: 2rem;
 }
 .alarm__h2 {
   background-color: lightcoral;

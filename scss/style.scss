@@ -1,6 +1,6 @@
 @import "imports/reset.scss", "imports/mixins.scss", "imports/variables.scss";
 .container {
-    @include flex(row,nowrap,center,center);
+    @include flex(column,nowrap,center,center);
     padding: 1rem;
     height: 100vh;
 }
@@ -39,6 +39,9 @@
 
     &__btn {
         background-color: lightblue;
+        color:black;
+        font-size: large;
+        font-weight: bolder;
     }
     &__watch {
         background-color: lightcoral;
@@ -146,9 +149,7 @@
 
     &__input{
       text-align: center;
-      &--text{
-        background-color: red;
-        width:100%;      }
+      width:2rem;
     }
 
     &__h2{
