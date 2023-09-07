@@ -31,6 +31,7 @@ function  setAlarm (){
     //convertimos a milisegundos
     alarmInMiliSec = (sec * 1000) + (min * 60 * 1000) + (hours * 3600 * 1000);
     
+    //inicializamos los valores
     isAlarmInit=false;
     restingTime=0;
     alarmInDate=null;
@@ -40,19 +41,16 @@ function  setAlarm (){
 
     //mostramos play y mostramos en el reloj la alarma
     document.getElementById('playAlarm').innerHTML=playSVG;
-    document.getElementById('alarmTimer').innerHTML= `${addZeroIfNecessary(hours)}:${addZeroIfNecessary(min)}:${addZeroIfNecessary(sec)}`;
+    document.getElementById('alarmTimer').innerHTML= `${String(hours).padStart(2, '0')}:${String(min).padStart(2, '0')}:${String(sec).padStart(2, '0')}`;
 }
 
 function limitTwoIntegers(input) {
     var valor = input.value;
 
-    // Eliminar caracteres no numéricos
-    valor = valor.replace(/\D/g, '');
-
     // Limitar a dos dígitos enteros
     if (valor.length > 2) valor = valor.slice(0, 2);
 
-    //convertimos a entero
+    //convertimos a entero para que nos sustituya si entran un numero empezando por cero 
     valor=parseInt(valor);
 
     //controlamos que no sea mayor de 59 y que no sea NaN
@@ -106,4 +104,41 @@ function playPauseAlarm (){
     }
 }
 
+// Carga un sonido y lo inyecta de manera oculta
+// Tomado de: https://parzibyte.me/blog/2020/09/28/reproducir-sonidos-javascript/
 
+const chargeSound = function (fuente) {
+    const sound = document.createElement("audio");
+    sound.src = fuente;
+    sound.loop = true;
+    sound.setAttribute("preload", "auto");
+    sound.setAttribute("controls", "none");
+    sound.style.display = "none"; // <-- oculto
+    document.body.appendChild(sound);
+    return sound;
+};
+
+const sound = chargeSound("src/atrapado_en_el_tiempo_el_dia_de_la_marmota.mp3");
+
+
+
+//Conversion de milisegundos a horas,minutos y segundos y añade un cero si es necesario
+
+/* Math.floor(): redondear hacia abajo el resultado.
+
+ String(...): convertimos el resultado en un string ,necesario para usar el método padStart.
+
+ .padStart(2, '0'): la cadena tenga al menos dos caracteres. Si tiene menos de dos caracteres, se rellena con ceros a la izquierda.
+*/
+const MiliSecToHourMinSec = (TotalMiliSec) => {
+    let hour = String(Math.floor(TotalMiliSec / (1000 * 60 * 60))).padStart(2, '0'); // Calcula las horas y añade un cero si es necesario
+    TotalMiliSec -= hour * 60 * 60 * 1000; // Resta las horas al total
+
+    let min = String(Math.floor(TotalMiliSec / (1000 * 60))).padStart(2, '0'); // Calcula los minutos y añade un cero si es necesario
+    TotalMiliSec -= min * 60 * 1000; // Resta los minutos al total
+
+    let sec = String(Math.floor(TotalMiliSec / 1000)).padStart(2, '0'); // Calcula los segundos y añade un cero si es necesario
+    
+    
+    return `${hour}:${min}:${sec}`;
+}

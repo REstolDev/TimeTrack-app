@@ -13,13 +13,14 @@
     <script defer src="js/timeTrackClass.js"></script>
     <script defer src="js/timeTrackAlarm.js"></script>
     <script defer src="js/timeTrackStopWatch.js"></script>
-    <script defer src="js/timeTracklibrary.js"></script> 
-
+    <script defer src="js/styles.js"></script> 
   </head>
   <body>
-    <div class="container">
-      <div class="content">
-        <div class="controls">
+    <div class="container divToHide">
+      <button class="deactivateFullScreenBtn divToHide" id="deactivateFullScreenBtn">
+       </button>
+      <div class="content divToHide">
+        <div class="controls divToHide">
           <button class="controls__btn redBG" id="stopStopWatch">
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="controls__svg" viewBox="0 0 16 16">
             <path d="M5 3.5h6A1.5 1.5 0 0 1 12.5 5v6a1.5 1.5 0 0 1-1.5 1.5H5A1.5 1.5 0 0 1 3.5 11V5A1.5 1.5 0 0 1 5 3.5z"/>
@@ -34,12 +35,18 @@
             </svg>
           </button>
         </div>
-        <div class="header">
+        <div class="header divToHide">
           <div class="header__div">
             <button class="header__btn" id="playAlarm"></button>
             <h3 class="header__h3" id="alarmTimer"></h3>
           </div>
-          <div class="header__div">  
+          <div class="header__div project"> 
+            <button class="header__btn--save">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="header__svg save" viewBox="0 0 16 16">
+                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+              </svg>
+            </button>
             <input type="text" class="header__input" value="PROJECT NAME"></input>
           </div>
         </div>
@@ -52,16 +59,26 @@
             <p class="watch__p--secSep">.</p>
             <h4 class="watch__h4--sec" id="watchSecs">00</h4>
         </div>
-        <nav class="navbar">
+        <nav class="navbar divToHide">
           <ul class="navbar__ul">
-            <li class="navbar__li"><a href="" class="navbar__a">HISTORY</a></li>
-            <li class="navbar__li"><a href="" class="navbar__a">ALARM</a></li>
-            <li class="navbar__li"><a href="" class="navbar__a">BILLING</a></li>
-            <li class="navbar__li"><a href="" class="navbar__a">INFO</a></li>
+            <li class="navbar__li" id="liMenu"><button class="navbar__btn btnMenu active">ALARM</button></li>
+            <li class="navbar__li" id="liMenu"><button class="navbar__btn btnMenu">HISTORY</button></li>
+            <li class="navbar__li" id="liMenu"><button class="navbar__btn btnMenu">BILLING</button></li>
+            <li class="navbar__li"><button class="navbar__btn" id="darkLightMode">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-brightness-high-fill" viewBox="0 0 16 16">
+                <path d="M12 8a4 4 0 1 1-8 0 4 4 0 0 1 8 0zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"/>
+              </svg>
+            </button></li>
+            <li class="navbar__li"><button class="navbar__btn" id="fullScreenWatch">
+              <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-arrows-collapse" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h13a.5.5 0 0 1 0 1h-13A.5.5 0 0 1 1 8Zm7-8a.5.5 0 0 1 .5.5v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 4.293V.5A.5.5 0 0 1 8 0Zm-.5 11.707-1.146 1.147a.5.5 0 0 1-.708-.708l2-2a.5.5 0 0 1 .708 0l2 2a.5.5 0 0 1-.708.708L8.5 11.707V15.5a.5.5 0 0 1-1 0v-3.793Z"/>
+              </svg>
+            </button></li>
           </ul>
         </nav>
       </div>
-      <div class="alarm">
+      <div class="sectionContainer divToHide">
+      <section class="section alarm active">
         <button class="alarm__btn" id="setAlarm">SET</button>
           <div class="alarm__watch">
             <!-- Uso el input tipo text porque con tipo number no se puedo usar la propiedad .length y limitar a dos caracteres-->
@@ -72,6 +89,19 @@
             <label for="alarmSec"  class="alarm__label">SECS</label>
             <input type="number" oninput="limitTwoIntegers(this)" maxlength="2" min="0" max="59" id="alarmSec" name="alarmSec" class="alarm__input" value="0" ></input>
           </div>
+      </section>
+      <section class="section alarm">
+        <button class="alarm__btn" id="setAlarm">HISTORY</button>
+          <div class="alarm__watch">
+            
+          </div>
+      </section>
+      <section class="section alarm">
+        <button class="alarm__btn" id="setAlarm">BILLING</button>
+          <div class="alarm__watch">
+            
+          </div>
+      </section>
       </div>
     </div>
   </body>

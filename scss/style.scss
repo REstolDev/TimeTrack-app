@@ -1,21 +1,50 @@
 @import "imports/reset.scss", "imports/mixins.scss", "imports/variables.scss";
+:root{
+  .darkMode{
+    color:var(--blanco);
+    background-color: var(--)
+  }
+  
+}
 .container {
     @include flex(column,nowrap,center,center);
     padding: 0.5rem;
     height: 100vh;
     margin:0 auto;
+    &.hide{
+      &:hover{
+        background-color: var(--grey);
+        background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-fullscreen" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M5.828 10.172a.5.5 0 0 0-.707 0l-4.096 4.096V11.5a.5.5 0 0 0-1 0v3.975a.5.5 0 0 0 .5.5H4.5a.5.5 0 0 0 0-1H1.732l4.096-4.096a.5.5 0 0 0 0-.707zm4.344 0a.5.5 0 0 1 .707 0l4.096 4.096V11.5a.5.5 0 1 1 1 0v3.975a.5.5 0 0 1-.5.5H11.5a.5.5 0 0 1 0-1h2.768l-4.096-4.096a.5.5 0 0 1 0-.707zm0-4.344a.5.5 0 0 0 .707 0l4.096-4.096V4.5a.5.5 0 1 0 1 0V.525a.5.5 0 0 0-.5-.5H11.5a.5.5 0 0 0 0 1h2.768l-4.096 4.096a.5.5 0 0 0 0 .707zm-4.344 0a.5.5 0 0 1-.707 0L1.025 1.732V4.5a.5.5 0 0 1-1 0V.525a.5.5 0 0 1 .5-.5H4.5a.5.5 0 0 1 0 1H1.732l4.096 4.096a.5.5 0 0 1 0 .707z"/></svg>');
+        background-repeat: no-repeat;
+        background-position-x: center;
+        background-position-y: 19%;
+        background-size: 1.5em;
+      }
+  }
 }
 
 .content {
     display:grid;
     grid-template-columns: 10% 90%;
-    grid-template-rows:10% 70% 20%;
+    grid-template-rows:20% 60% 20%;
     padding: 0.5rem;
     width:30rem;
     @include pDesktop();
-    @include laptop(){
-      width:40rem;
+    @include laptop(){ width:40rem };
+    &.hide{
+      display: block;
     }
+}
+
+.deactivateFullScreenBtn{
+  display: none;
+  
+  &.hide{
+    display: block;
+    position: absolute;
+    width:100vw;
+    height: 100vh;
+  } 
 }
 
 .controls {
@@ -23,6 +52,9 @@
     grid-column: 1 / 2;
     grid-row: 2 / 3 ;
 
+    &.hide{
+      display: none;
+    }
     &__btn {
         width:2.5rem;
         padding: 0.25rem 0.5rem;
@@ -54,15 +86,20 @@
 }
 
 .header {
-    
+    &.hide{
+      display: none;
+    }
     padding: 0 1rem;
     grid-column: 2 / 3;
     grid-row: 1 / 2 ;
     @include flex(row,nowrap,space-between,flex-end);
-    gap:2rem;
     &__div{
         @include flex(row,nowrap,left,center);
-        gap:0.5rem;
+        
+        &.project{
+          background-color: var(--grey);
+          border-radius: 0.5rem;
+        }
     }
 
     &__btn{
@@ -71,30 +108,38 @@
       height: 2rem;
       background-color: var(--grey);
       border-radius:50%; 
-      @include flex(column,nowrap,center,center);
+ 
       &:hover{background-color: var(--greyHover)};
 
+      &--save{
+        border-right: 1px solid var(--greyHover);
+        padding:0 0.25rem;
+      }
     }
     &__svg{
-      text-align: center;
       color: var(--green);
-    }
+      width: 24px; 
+        &:hover{
+          color: var(--greenHover);
+        }
+      }
+    
+    
     &__watch {
         @include flex(row, nowrap, space-between,center);
     }
 
     &__input{
       height: 2rem;
-      background-color: var(--grey);
-      border-radius: 0.5rem;
       text-align: center;
-      width:100%;     
-    }
+      margin:0 0.5rem;
 
-    &__h2{
-        text-align: center;
+    }
+    &__h3{
+      margin:0 0.5rem;
     }
   }
+  
 .watch {
     padding:0rem 1rem 0.5rem 1rem;
     grid-column: 2 / 3;
@@ -159,51 +204,78 @@
   }
 }
 .navbar{
+  
     @include flex(column,nowrap,center,space-evenly);
     grid-column: 1 / 3;
     grid-row: 3 / 4 ;
     padding: 1rem 0.5rem;
     height:fit-content ;
+    &.hide{
+      display: none;
+    }
 
     &__ul{
         @include flex(row,nowrap,space-evenly,center);
         gap:1rem;
         
     }
-    &__a {
-      color:var(--yellow);
-      &:hover{color: var(--white)};
-    }
-    
-  }
-  .alarm{
-    padding: 0.5rem 0;
-    
-    @include flex(row,nowrap,space-between,center);
-    gap:2rem;
-    &__div{
-        @include flex(row,nowrap,left,center);
-        gap:0.5rem;
-    }
-
     &__btn {
-      background-color: var(--yellow);
-      color:var(--black);
-      border-radius: 0.5rem;
-      padding:0.5rem;
-      &:hover{background-color: var(--yellowHover)};
+      color:var(--yellow);
+      &:hover{
+        color: var(--negro);
+      };
+      &.active{
+        text-decoration: underline;
+        color: var(--negro);
+        text-decoration-color: var(--negro);
+        text-underline-offset: 0.25rem;
+      }
     }
-    &__watch {
-        @include flex(row, nowrap, space-between,center);
-    }
+    
+}
 
-    &__input{
-      text-align: center;
-      width:3rem;
-      margin-right:0.5rem;
-    }
 
-    &__h2{
-        text-align: center;
-    }
+.alarm{
+  padding: 0.5rem 0;
+  
+  @include flex(row,nowrap,space-between,center);
+  gap:2rem;
+  &__div{
+    @include flex(row,nowrap,left,center);
+    gap:0.5rem;
   }
+  &__btn {
+    background-color: var(--yellow);
+    color:var(--black);
+    border-radius: 0.5rem;
+    padding:0.5rem;
+    &:hover{background-color: var(--yellowHover)};
+  }
+  &__watch {
+    @include flex(row, nowrap, space-between,center);
+  }
+  &__input{
+    text-align: center;
+    width:3rem;
+    margin-right:0.5rem;
+  }
+  &__h2{
+    text-align: center;
+  }
+}
+
+.section{
+  display: none;
+  &.active{display: flex;}
+
+  &.hide{
+    display: none;
+  }
+}
+
+.sectionContainer{
+  display: block;
+  &.hide{
+    display: none;
+  }
+}
