@@ -170,8 +170,8 @@ button {
   --tipo-principal: "Roboto", sans-serif;
   --tipo-secundaria: "Inter Tight", sans-serif;
   --fontsize-p: 1rem;
-  --fontsize-h1: 6rem;
-  --fontsize-h2: 3rem;
+  --fontsize-h1: 4.8rem;
+  --fontsize-h2: 2.8rem;
   --fontsize-h3: 0.75rem;
   --fontweight-p: 300;
   --fontweight-strong: 600;
@@ -190,17 +190,33 @@ button {
 
 :root .darkMode {
   color: var(--blanco);
-  background-color: var(--);
+  background-color: var(--negro);
 }
 
 .container {
   display: flex;
   flex-flow: column nowrap;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   padding: 0.5rem;
   height: 100vh;
   margin: 0 auto;
+  width: 28rem;
+}
+@media screen and (min-width: 960px) {
+  .container {
+    width: 40rem;
+  }
+}
+@media screen and (min-width: 960px) {
+  .container {
+    font-family: var(--tipo-principal);
+    font-size: var(--fontsize-pDesktop);
+    font-weight: var(--fontweight-pDesktop);
+  }
+}
+.container.hide {
+  justify-content: center;
 }
 .container.hide:hover {
   background-color: var(--grey);
@@ -212,23 +228,11 @@ button {
 }
 
 .content {
+  width: 100%;
   display: grid;
   grid-template-columns: 10% 90%;
   grid-template-rows: 20% 60% 20%;
   padding: 0.5rem;
-  width: 30rem;
-}
-@media screen and (min-width: 960px) {
-  .content {
-    font-family: var(--tipo-principal);
-    font-size: var(--fontsize-pDesktop);
-    font-weight: var(--fontweight-pDesktop);
-  }
-}
-@media screen and (min-width: 960px) {
-  .content {
-    width: 40rem;
-  }
 }
 .content.hide {
   display: block;
@@ -325,10 +329,6 @@ button {
 .header__btn:hover {
   background-color: var(--greyHover);
 }
-.header__btn--save {
-  border-right: 1px solid var(--greyHover);
-  padding: 0 0.25rem;
-}
 .header__svg {
   color: var(--green);
   width: 24px;
@@ -336,23 +336,23 @@ button {
 .header__svg:hover {
   color: var(--greenHover);
 }
-.header__watch {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  align-items: center;
-}
 .header__input {
   height: 2rem;
   text-align: center;
   margin: 0 0.5rem;
+  width: 8rem;
+}
+@media screen and (min-width: 960px) {
+  .header__input {
+    width: 10rem;
+  }
 }
 .header__h3 {
   margin: 0 0.5rem;
 }
 
 .watch {
-  padding: 0rem 1rem 0.5rem 1rem;
+  padding: 0.5rem 1rem;
   grid-column: 2/3;
   grid-row: 2/3;
   display: grid;
@@ -504,13 +504,6 @@ button {
   align-items: center;
   gap: 2rem;
 }
-.alarm__div {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: left;
-  align-items: center;
-  gap: 0.5rem;
-}
 .alarm__btn {
   background-color: var(--yellow);
   color: var(--black);
@@ -535,19 +528,77 @@ button {
   text-align: center;
 }
 
-.section {
-  display: none;
-}
-.section.active {
+.history {
+  padding: 0.5rem 0;
   display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  align-items: center;
 }
-.section.hide {
-  display: none;
+.history__div {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.history__span {
+  background-color: rgba(248, 201, 72, 0.3019607843);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+}
+.history__td {
+  padding: 0.2rem 0.5rem;
 }
 
-.sectionContainer {
-  display: block;
+.aside {
+  padding: 0.5rem;
 }
-.sectionContainer.hide {
+.aside.hide {
   display: none;
+}
+.aside__section {
+  display: none;
+}
+.aside__section.active {
+  display: flex;
+}
+
+.statistics__div {
+  margin-right: 1rem;
+  margin-top: 1rem;
+}
+.statistics__span {
+  width: 100%;
+  background-color: rgba(248, 201, 72, 0.3019607843);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  text-align: center;
+}
+
+.logo {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.logo.hide {
+  display: none;
+}
+.logo__img {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+}
+.logo__h1 {
+  font-family: var(--tipo-secundaria);
+  font-size: var(--fontsize-h2);
+  font-weight: var(--fontweight-h2);
+  font-size: 1.25rem;
+}
+.logo__span {
+  font-style: italic;
 }/*# sourceMappingURL=style.css.map */
