@@ -545,7 +545,7 @@ button {
 }
 .history__span {
   background-color: rgba(248, 201, 72, 0.3019607843);
-  padding: 0.5rem;
+  padding: 0.75rem;
   border-radius: 0.5rem;
   margin-top: 1rem;
 }
@@ -573,7 +573,7 @@ button {
 .statistics__span {
   width: 100%;
   background-color: rgba(248, 201, 72, 0.3019607843);
-  padding: 0.5rem;
+  padding: 0.75rem;
   border-radius: 0.5rem;
   text-align: center;
 }
@@ -584,6 +584,7 @@ button {
   justify-content: center;
   align-items: center;
   margin-bottom: 2rem;
+  margin-top: 1rem;
 }
 .logo.hide {
   display: none;
@@ -592,6 +593,7 @@ button {
   width: 2rem;
   height: 2rem;
   border-radius: 50%;
+  margin-bottom: 0.25rem;
 }
 .logo__h1 {
   font-family: var(--tipo-secundaria);

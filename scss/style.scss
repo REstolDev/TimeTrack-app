@@ -269,7 +269,7 @@
   }
   &__span {
     background-color: #f8c9484d;
-    padding: 0.5rem;
+    padding: 0.75rem;
     border-radius: 0.5rem;
     margin-top: 1rem;
   }
@@ -301,7 +301,7 @@
   &__span {
     width: 100%;
     background-color: #f8c9484d;
-    padding: 0.5rem;
+    padding: 0.75rem;
     border-radius: 0.5rem;
     text-align: center;
   }
@@ -310,6 +310,7 @@
 .logo {
   @include flex(column, nowrap, center, center);
   margin-bottom: 2rem;
+  margin-top: 1rem;
   &.hide {
     display: none;
   }
@@ -317,6 +318,7 @@
     width: 2rem;
     height: 2rem;
     border-radius: 50%;
+    margin-bottom: 0.25rem;
   }
 
   &__h1 {
