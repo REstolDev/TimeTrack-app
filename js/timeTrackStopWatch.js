@@ -29,7 +29,9 @@ const stopStopWatch = () => {
   if(startingTime){
     pauseStopWatch();
      // Preguntar al usuario si desea guardar el proyecto
-     if (window.confirm("Do you want to save this project in your Locale Storage?")) add();
+     customConfirm("Do you want to save this project in your Locale Storage?", (isConfirmed) => {
+      if(isConfirmed) add();
+     });
 
     clearInterval(watchIdInterval);
     timeDifference = 0;

@@ -4,4 +4,13 @@ class project {
     this.date = new Date(date);
     this.totalTime = Number(totalTime);
   }
+
+  startedTime() {
+    const startedDate = new Date(this.date - this.totalTime);
+    return startedDate.toLocaleTimeString();
+  }
+
+  finishedTime() {
+    return this.date.toLocaleTimeString();
+  }
 }

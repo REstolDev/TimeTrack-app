@@ -106,13 +106,30 @@
       </div>  
         <div class="history__div--results" id="showProjects"></div>
         <div class="history__div" id="calcTotalTime"></div>
+        <a href="/" title="Delete All Projects" class="history__a" id="clear"></a>
+
       </section>
       <section class="aside__section statistics">
         <div class="statistics__div" id="today"></div>
         <div class="statistics__div" id="thisWeek"></div>
-        <div class="statistics__div" id="thisMonth"></div>
+        <div class="statistics__div" id="thisMonth"></div> 
       </section>
       </aside>
+    </div>
+    <div id="customAlert" class="alert">
+      <div class="alert__content">
+        <span id="customAlertText" class="alert__span"></span>
+        <button class="alert__btn" onclick="closeCustomAlert()">Close</button>
+      </div>
+    </div>
+    <div id="customConfirm" class="alert">
+      <div class="alert__content center">
+        <span id="customConfirmText" class="alert__span"></span>
+        <div class="alert__div">
+          <button class="alert__btn" onclick="confirmAction(true)">Accept</button>
+          <button class="alert__btn" onclick="confirmAction(false)">Cancel</button>
+        </div>
+      </div>
     </div>
   </body>
 </html>

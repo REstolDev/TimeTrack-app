@@ -44,6 +44,39 @@ btnMenu.forEach((v, i) => {
   });
 });
 
+function showCustomAlert(msg) {
+  document.getElementById('customAlert').style.display = 'flex';
+
+  document.getElementById('customAlertText').innerText = msg;
+}
+
+function closeCustomAlert() {
+  document.getElementById('customAlert').style.display = 'none';
+}
+
+let confirmCallback;
+
+function showCustomConfirm(msg) {
+  document.getElementById('customConfirm').style.display = 'flex';
+
+  document.getElementById('customConfirmText').innerText = msg;
+}
+
+function confirmAction(isConfirmed) {
+  document.getElementById('customConfirm').style.display = 'none';
+  if(confirmCallback) confirmCallback(isConfirmed);
+}
+
+// Función para mostrar un cuadro de confirmación personalizado con un mensaje y una función de devolución de llamada
+function customConfirm(text, callback) {
+  // Almacena la función de devolución de llamada globalmente
+  confirmCallback = callback;  
+  // Muestra el cuadro de confirmación personalizado con el mensaje proporcionado
+  showCustomConfirm(text);
+}
+
+
+
 document.getElementById("darkLightMode").onclick = darkLightMode;
 document.getElementById("fullScreenWatch").onclick = fullScreenWatch;
 document.getElementById("deactivateFullScreenBtn").onclick = removeHide;
