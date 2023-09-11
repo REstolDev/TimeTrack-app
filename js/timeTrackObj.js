@@ -2,8 +2,9 @@ function clear() {
   // Usar la función de confirmación personalizada en lugar de window.confirm
   customConfirm("Do you want to delete all the projects from your Local Storage?", (isConfirmed) => {
     if (isConfirmed) {
-      localStorage.clear();
-      showCustomAlert("Project Deleted");
+      localStorage.removeItem("projects");
+      showCustomAlert("Projects Deleted");
+      location.reload(); // Refresh the page
     }
   });
 }
@@ -19,6 +20,7 @@ const add = () => {
     )
   );
   saveProjects();
+  chargeSelectsData();
   filter();
   showCustomAlert("Project saved");
 };
@@ -49,6 +51,7 @@ const deleteProject = (projectDate) => {
       projects.splice(projectIndex, 1); 
       saveProjects();
       filter(); 
+      chargeSelectsData();
       showCustomAlert("Project Deleted");
       }
     });

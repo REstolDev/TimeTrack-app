@@ -17,7 +17,8 @@ const playStopWatch = () => {
 };
 
 const pauseStopWatch = () => {
-  if(startingTime){
+
+  if(startingTime && !isPaused){
    clearInterval(watchIdInterval);
    timeDifference = new Date().getTime() - startingTime.getTime();
    isPaused = true;
@@ -27,20 +28,28 @@ const pauseStopWatch = () => {
 // Detenemos el cronómetro y reiniciamos las variables
 const stopStopWatch = () => {
   if(startingTime){
+    console.log(timeDifference);
+    
     pauseStopWatch();
+    console.log(timeDifference);
+
      // Preguntar al usuario si desea guardar el proyecto
      customConfirm("Do you want to save this project in your Locale Storage?", (isConfirmed) => {
       if(isConfirmed) add();
+      console.log(timeDifference);
+
+      clearInterval(watchIdInterval);
+      timeDifference = 0;
+      watchHours = "00";
+      watchMins = "00";
+      watchSecs = "00";
+      isPaused = false;
+      startingTime = null;
+      showTimer(watchHours, watchMins, watchSecs);
+      console.log(timeDifference);
+
      });
 
-    clearInterval(watchIdInterval);
-    timeDifference = 0;
-    watchHours = "00";
-    watchMins = "00";
-    watchSecs = "00";
-    isPaused = false;
-    startingTime = null;
-    showTimer(watchHours, watchMins, watchSecs);
   };
 };
 

@@ -199,13 +199,14 @@ button {
   justify-content: flex-start;
   align-items: center;
   padding: 0.5rem;
-  height: 100vh;
   margin: 0 auto;
-  width: 28rem;
+  min-width: 21rem;
+  max-width: 25rem;
+  width: 100dvw;
 }
 @media screen and (min-width: 960px) {
   .container {
-    width: 40rem;
+    max-width: 40rem;
   }
 }
 @media screen and (min-width: 960px) {
@@ -231,8 +232,13 @@ button {
   width: 100%;
   display: grid;
   grid-template-columns: 10% 90%;
-  grid-template-rows: 20% 60% 20%;
+  grid-template-rows: 15% 45% 18% 17%;
   padding: 0.5rem;
+}
+@media screen and (min-width: 650px) {
+  .content {
+    grid-template-rows: 20% 60% 20% 20%;
+  }
 }
 .content.hide {
   display: block;
@@ -250,11 +256,23 @@ button {
 
 .controls {
   display: flex;
-  flex-flow: column nowrap;
-  justify-content: space-evenly;
+  flex-flow: row nowrap;
+  justify-content: center;
   align-items: center;
-  grid-column: 1/2;
-  grid-row: 2/3;
+  grid-column: 1/3;
+  grid-row: 3/4;
+  gap: 3rem;
+}
+@media screen and (min-width: 650px) {
+  .controls {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-evenly;
+    align-items: center;
+    grid-column: 1/2;
+    grid-row: 2/3;
+    gap: 0;
+  }
 }
 .controls.hide {
   display: none;
@@ -299,7 +317,7 @@ button {
 
 .header {
   padding: 0 1rem;
-  grid-column: 2/3;
+  grid-column: 1/3;
   grid-row: 1/2;
   display: flex;
   flex-flow: row nowrap;
@@ -308,6 +326,12 @@ button {
 }
 .header.hide {
   display: none;
+}
+@media screen and (min-width: 650px) {
+  .header {
+    grid-column: 2/3;
+    grid-row: 1/2;
+  }
 }
 .header__div {
   display: flex;
@@ -353,13 +377,19 @@ button {
 
 .watch {
   padding: 0.5rem 1rem;
-  grid-column: 2/3;
+  grid-column: 1/3;
   grid-row: 2/3;
   display: grid;
   grid-template-columns: 35% 5% 35% 5% 20%;
   grid-template-rows: 90% 10%;
   align-items: baseline;
   justify-items: center;
+}
+@media screen and (min-width: 650px) {
+  .watch {
+    grid-column: 2/3;
+    grid-row: 2/3;
+  }
 }
 .watch__h2--h {
   grid-column: 1/2;
@@ -468,10 +498,15 @@ button {
   justify-content: center;
   align-items: space-evenly;
   grid-column: 1/3;
-  grid-row: 3/4;
+  grid-row: 4/5;
   padding: 1rem 0.5rem;
   height: -moz-fit-content;
   height: fit-content;
+}
+@media screen and (min-width: 650px) {
+  .navbar {
+    grid-row: 3/4;
+  }
 }
 .navbar.hide {
   display: none;
@@ -498,11 +533,6 @@ button {
 
 .alarm {
   padding: 0.5rem 0;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: space-between;
-  align-items: center;
-  gap: 2rem;
 }
 .alarm__btn {
   background-color: var(--yellow);
@@ -543,6 +573,13 @@ button {
   gap: 1rem;
   margin-bottom: 1rem;
 }
+.history__div--results {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
 .history__span {
   background-color: rgba(248, 201, 72, 0.3019607843);
   padding: 0.75rem;
@@ -552,22 +589,23 @@ button {
 .history__td {
   padding: 0.2rem 0.5rem;
 }
-.history__a {
+.history__btn {
   color: var(--red);
   text-decoration: underline;
   text-underline-offset: 0.25rem;
 }
-.history__a:hover {
+.history__btn:hover {
   color: var(--redHover);
 }
 .history__svg {
+  min-width: 1rem;
   color: var(--red);
 }
 .history__svg:hover {
   color: var(--redHover);
 }
 .history__svg--info {
-  margin-left: 1rem;
+  margin-left: 0.5rem;
   color: var(--blue);
 }
 .history__svg--info:hover {
@@ -585,6 +623,16 @@ button {
 }
 .aside__section.active {
   display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+.aside__section.active.statistics {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .statistics__div {
@@ -592,7 +640,7 @@ button {
   margin-top: 1rem;
 }
 .statistics__span {
-  width: 100%;
+  min-width: 8rem;
   background-color: rgba(248, 201, 72, 0.3019607843);
   padding: 0.75rem;
   border-radius: 0.5rem;
@@ -658,6 +706,7 @@ button {
   align-items: center;
 }
 .alert__btn {
+  color: var(--black);
   margin: 1.5rem auto 0 auto;
   background-color: var(--yellow);
   border-radius: 0.5rem;

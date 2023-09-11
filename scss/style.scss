@@ -8,11 +8,12 @@
 .container {
   @include flex(column, nowrap, flex-start, center);
   padding: 0.5rem;
-  height: 100vh;
   margin: 0 auto;
-  width: 28rem;
+  min-width: 21rem;
+  max-width: 25rem;
+  width:100dvw;
   @include laptop() {
-    width: 40rem;
+    max-width: 40rem;
   }
   @include pDesktop();
 
@@ -33,8 +34,12 @@
   width:100%;
   display: grid;
   grid-template-columns: 10% 90%;
-  grid-template-rows: 20% 60% 20%;
+  grid-template-rows: 15% 45% 18% 17%;
   padding: 0.5rem;
+
+  @include tablet{   grid-template-rows: 20% 60% 20% 20%;
+  };
+
   &.hide {
     display: block;
   }
@@ -52,9 +57,16 @@
 }
 
 .controls {
-  @include flex(column, nowrap, space-evenly, center);
-  grid-column: 1 / 2;
-  grid-row: 2 / 3;
+  @include flex(row, nowrap,center, center);
+  grid-column: 1 / 3;
+  grid-row: 3 / 4;
+  gap:3rem;
+  @include tablet{ 
+    @include flex(column, nowrap, space-evenly, center);
+    grid-column: 1 / 2;
+    grid-row: 2 / 3;
+    gap:0;
+  };
 
   &.hide {
     display: none;
@@ -101,8 +113,13 @@
     display: none;
   }
   padding: 0 1rem;
-  grid-column: 2 / 3;
+  grid-column: 1 / 3;
   grid-row: 1 / 2;
+
+  @include tablet{ 
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+  };
   @include flex(row, nowrap, space-between, flex-end);
   &__div {
     @include flex(row, nowrap, left, center);
@@ -148,8 +165,13 @@
 
 .watch {
   padding: 0.5rem 1rem;
-  grid-column: 2 / 3;
+  grid-column: 1 / 3;
   grid-row: 2 / 3;
+
+  @include tablet{
+    grid-column: 2 / 3;
+    grid-row: 2 / 3;
+  }
   display: grid;
   grid-template-columns: 35% 5% 35% 5% 20%;
   grid-template-rows: 90% 10%;
@@ -205,7 +227,11 @@
 .navbar {
   @include flex(column, nowrap, center, space-evenly);
   grid-column: 1 / 3;
-  grid-row: 3 / 4;
+  grid-row: 4 / 5;
+
+  @include tablet{
+    grid-row: 3 / 4;
+  }
   padding: 1rem 0.5rem;
   height: fit-content;
   &.hide {
@@ -232,9 +258,6 @@
 
 .alarm {
   padding: 0.5rem 0;
-
-  @include flex(row, nowrap, space-between, center);
-  gap: 2rem;
 
   &__btn {
     background-color: var(--yellow);
@@ -266,6 +289,10 @@
     @include flex(row, nowrap, space-between, center);
     gap: 1rem;
     margin-bottom: 1rem;
+    &--results{
+      @include flex(column, nowrap, center, center);
+      gap: 2rem;
+    }
   }
   &__span {
     background-color: #f8c9484d;
@@ -277,7 +304,7 @@
     padding: 0.2rem 0.5rem;
   }
 
-  &__a{
+  &__btn{
     color: var(--red);
     text-decoration: underline;
     text-underline-offset: 0.25rem;
@@ -286,10 +313,11 @@
   }
 
   &__svg{ 
+    min-width: 1rem;
     color: var(--red);
     &:hover{ color: var(--redHover) };
     &--info{
-      margin-left:1rem;
+      margin-left:0.5rem;
       color: var(--blue);
       &:hover{ color: var(--blueHover) };
     }
@@ -306,18 +334,24 @@
     display: none;
 
     &.active {
-      display: flex;
+      @include flex(column,nowrap,center,center);
+      gap: 2rem;
+      &.statistics{
+          @include flex(row,nowrap,center,center);
+      }
     }
+    
   }
 }
 
 .statistics {
+  
   &__div {
     margin-right: 1rem;
     margin-top: 1rem;
   }
   &__span {
-    width: 100%;
+    min-width:8rem;
     background-color: #f8c9484d;
     padding: 0.75rem;
     border-radius: 0.5rem;
@@ -376,6 +410,7 @@
   }
 
   &__btn{
+    color:var(--black);
     margin:1.5rem auto 0 auto;
     background-color: var(--yellow);
     border-radius: 0.5rem;

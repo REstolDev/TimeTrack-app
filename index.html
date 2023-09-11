@@ -4,14 +4,14 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TimeTrack</title>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-V067WN4KLT"></script>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-TWX34P4Z0X"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-V067WN4KLT');
+  gtag('config', 'G-TWX34P4Z0X');
 </script>
     <link rel="icon" type="image/x-icon" href="src/favicon.ico" />
     <link rel="stylesheet" href="css/style.css" />
@@ -104,8 +104,8 @@
           </div>
       </section>
       <section class="aside__section history">
-      <div class="history__div">
         <button title="Filter History" class="alarm__btn" id="filter">FILTER</button>
+      <div class="history__div">
         <label for="projectsName">by Project: </label>
         <select name="projectsName" id="projectsName" class="history__select">
         </select>
@@ -113,16 +113,21 @@
         <select name="projectsDate" id="projectsDate" class="history__select">
         </select>
       </div>  
-        <div class="history__div--results" id="showProjects"></div>
-        <div class="history__div" id="calcTotalTime"></div>
-        <a href="/" title="Delete All Projects" class="history__a" id="clear"></a>
-
+      <div class="history__div--results">
+        <div  id="showProjects"></div>
+        <div  id="calcTotalTime"></div>
+        <button title="Delete All Projects" class="history__btn" id="clear"></button>
+      </div>
       </section>
       <section class="aside__section statistics">
+      <div>
         <div class="statistics__div" id="today"></div>
         <div class="statistics__div" id="thisWeek"></div>
+      </div>
+      <div>
         <div class="statistics__div" id="lastWeek"></div>
         <div class="statistics__div" id="thisMonth"></div> 
+      </div>
       </section>
       </aside>
     </div>
