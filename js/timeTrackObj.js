@@ -217,9 +217,23 @@ const statistics = () => {
     //getDay()-1 para que la semana empiece en lunes no en domingo
     const dayOfWeek = startOfWeek.getDay() === 0 ? 6 : startOfWeek.getDay() - 1;
     startOfWeek.setDate(startOfWeek.getDate() - dayOfWeek);
+    console.log(startOfWeek.getDate(), dayOfWeek);
     
     const weekProjects = projects.filter((item) => new Date(item.date) >= startOfWeek && new Date(item.date) <= currentDate);
     document.getElementById("thisWeek").innerHTML = `<div class="statistics__span">THIS WEEK<br>${calcTotalTime(weekProjects)}</div>`;
+
+    //LAST WEEK
+    const startOfLastWeek = new Date();
+    startOfLastWeek.setHours(0,0,0,0);
+
+    startOfLastWeek.setDate(startOfLastWeek.getDate() - (dayOfWeek+7));
+    const endOfLastWeek = new Date(startOfLastWeek);
+    
+    endOfLastWeek.setDate(endOfLastWeek.getDate() + 6);
+    endOfLastWeek.setHours(23,59,59,99)
+    const lastWeekProjects = projects.filter((item) => new Date(item.date) >= startOfLastWeek && new Date(item.date) <= endOfLastWeek);
+    
+    document.getElementById("lastWeek").innerHTML = `<div class="statistics__span">LAST WEEK<br>${calcTotalTime(lastWeekProjects)}</div>`;
 
      //THIS MONTH
      const currentMonth = new Date(currentDate).getMonth();
