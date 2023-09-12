@@ -92,27 +92,27 @@
       </main>
       <aside class="aside divToHide">
       <section class="aside__section alarm">
+        <div class="alarm__watch">
+          <!-- Uso el input tipo text porque con tipo number no se puedo usar la propiedad .length y limitar a dos caracteres-->
+          <label for="alarmHours" class="alarm__label">HOURS</label>
+          <input type="number"  oninput="limitTwoIntegers(this)" maxlength="2" min="0" max="24" id="alarmHours" name="alarmHours" class="alarm__input" value="0"></input>
+          <label for="alarmMin" class="alarm__label">MINUTES</label>
+          <input type="number" oninput="limitTwoIntegers(this)" maxlength="2" min="0" max="59" id="alarmMin" name="alarmMin" class="alarm__input" value="0" ></input>
+          <label for="alarmSec"  class="alarm__label">SECS</label>
+          <input type="number" oninput="limitTwoIntegers(this)" maxlength="2" min="0" max="59" id="alarmSec" name="alarmSec" class="alarm__input" value="0" ></input>
+        </div>
         <button title="Set Alarm" class="alarm__btn" id="setAlarm">SET</button>
-          <div class="alarm__watch">
-            <!-- Uso el input tipo text porque con tipo number no se puedo usar la propiedad .length y limitar a dos caracteres-->
-            <label for="alarmHours" class="alarm__label">HOURS</label>
-            <input type="number"  oninput="limitTwoIntegers(this)" maxlength="2" min="0" max="24" id="alarmHours" name="alarmHours" class="alarm__input" value="0"></input>
-            <label for="alarmMin" class="alarm__label">MINUTES</label>
-            <input type="number" oninput="limitTwoIntegers(this)" maxlength="2" min="0" max="59" id="alarmMin" name="alarmMin" class="alarm__input" value="0" ></input>
-            <label for="alarmSec"  class="alarm__label">SECS</label>
-            <input type="number" oninput="limitTwoIntegers(this)" maxlength="2" min="0" max="59" id="alarmSec" name="alarmSec" class="alarm__input" value="0" ></input>
-          </div>
       </section>
       <section class="aside__section history">
+        <div class="history__div filters">
+          <label for="projectsName">by Project: </label>
+          <select name="projectsName" id="projectsName" class="history__select">
+          </select>
+          <label for="projectsDate">by Date: </label>
+          <select name="projectsDate" id="projectsDate" class="history__select">
+          </select>
+        </div>  
         <button title="Filter History" class="alarm__btn" id="filter">FILTER</button>
-      <div class="history__div">
-        <label for="projectsName">by Project: </label>
-        <select name="projectsName" id="projectsName" class="history__select">
-        </select>
-        <label for="projectsDate">by Date: </label>
-        <select name="projectsDate" id="projectsDate" class="history__select">
-        </select>
-      </div>  
       <div class="history__div--results">
         <div  id="showProjects"></div>
         <div  id="calcTotalTime"></div>

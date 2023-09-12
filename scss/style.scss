@@ -19,14 +19,7 @@
 
   &.hide {
     justify-content: center;
-    &:hover {
-      background-color: var(--grey);
-      background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-fullscreen" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M5.828 10.172a.5.5 0 0 0-.707 0l-4.096 4.096V11.5a.5.5 0 0 0-1 0v3.975a.5.5 0 0 0 .5.5H4.5a.5.5 0 0 0 0-1H1.732l4.096-4.096a.5.5 0 0 0 0-.707zm4.344 0a.5.5 0 0 1 .707 0l4.096 4.096V11.5a.5.5 0 1 1 1 0v3.975a.5.5 0 0 1-.5.5H11.5a.5.5 0 0 1 0-1h2.768l-4.096-4.096a.5.5 0 0 1 0-.707zm0-4.344a.5.5 0 0 0 .707 0l4.096-4.096V4.5a.5.5 0 1 0 1 0V.525a.5.5 0 0 0-.5-.5H11.5a.5.5 0 0 0 0 1h2.768l-4.096 4.096a.5.5 0 0 0 0 .707zm-4.344 0a.5.5 0 0 1-.707 0L1.025 1.732V4.5a.5.5 0 0 1-1 0V.525a.5.5 0 0 1 .5-.5H4.5a.5.5 0 0 1 0 1H1.732l4.096 4.096a.5.5 0 0 1 0 .707z"/></svg>');
-      background-repeat: no-repeat;
-      background-position-x: center;
-      background-position-y: 19%;
-      background-size: 1.5em;
-    }
+    min-height: 100dvh;
   }
 }
 
@@ -51,8 +44,18 @@
   &.hide {
     display: block;
     position: absolute;
-    width: 100vw;
-    height: 100vh;
+    min-width: 21rem;
+
+    width: 60%;
+    height: 40%;
+    &:hover {
+      background-color: var(--grey);
+      background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-fullscreen" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M5.828 10.172a.5.5 0 0 0-.707 0l-4.096 4.096V11.5a.5.5 0 0 0-1 0v3.975a.5.5 0 0 0 .5.5H4.5a.5.5 0 0 0 0-1H1.732l4.096-4.096a.5.5 0 0 0 0-.707zm4.344 0a.5.5 0 0 1 .707 0l4.096 4.096V11.5a.5.5 0 1 1 1 0v3.975a.5.5 0 0 1-.5.5H11.5a.5.5 0 0 1 0-1h2.768l-4.096-4.096a.5.5 0 0 1 0-.707zm0-4.344a.5.5 0 0 0 .707 0l4.096-4.096V4.5a.5.5 0 1 0 1 0V.525a.5.5 0 0 0-.5-.5H11.5a.5.5 0 0 0 0 1h2.768l-4.096 4.096a.5.5 0 0 0 0 .707zm-4.344 0a.5.5 0 0 1-.707 0L1.025 1.732V4.5a.5.5 0 0 1-1 0V.525a.5.5 0 0 1 .5-.5H4.5a.5.5 0 0 1 0 1H1.732l4.096 4.096a.5.5 0 0 1 0 .707z"/></svg>');
+      background-repeat: no-repeat;
+      background-position-x: center;
+      background-position-y: 19%;
+      background-size: 1.5em;
+    }
   }
 }
 
@@ -264,6 +267,8 @@
     color: var(--black);
     border-radius: 0.5rem;
     padding: 0.5rem;
+    margin-bottom: 1rem;
+
     &:hover {
       background-color: var(--yellowHover);
     }
@@ -274,7 +279,8 @@
   &__input {
     text-align: center;
     width: 3rem;
-    margin-right: 0.5rem;
+    margin: 0 0.5rem;
+    border: solid 0.5px var(--greyHover);
   }
   &__h2 {
     text-align: center;
@@ -286,13 +292,19 @@
   @include flex(column, nowrap, space-between, center);
 
   &__div {
-    @include flex(row, nowrap, space-between, center);
-    gap: 1rem;
-    margin-bottom: 1rem;
+    @include flex(row, nowrap, space-evenly, center);
+    gap: 0.5rem;
     &--results{
       @include flex(column, nowrap, center, center);
       gap: 2rem;
     }
+    
+  }
+  &__select{
+    border: solid 0.5px var(--greyHover);
+    padding:0.25rem;
+    width: 6rem;
+    text-align: center;
   }
   &__span {
     background-color: #f8c9484d;
@@ -335,7 +347,12 @@
 
     &.active {
       @include flex(column,nowrap,center,center);
-      gap: 2rem;
+      gap: 1rem;
+      &.alarm{
+        @include tablet(){
+           @include flex(row,nowrap,center,space-evenly); 
+          }
+      }
       &.statistics{
           @include flex(row,nowrap,center,center);
       }
