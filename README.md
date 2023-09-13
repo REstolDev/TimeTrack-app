@@ -1,6 +1,6 @@
 # TimeTrack
 
-TimeTrack es una aplicación web simple para llevar un registro de tiempo y configurar alarmas. Puedes utilizar esta aplicación para realizar un seguimiento del tiempo que dedicas a diferentes proyectos y configurar alarmas para recordatorios.
+TimeTrack es una SPA simple para llevar un registro de tiempo y configurar alarmas. Puedes utilizar esta aplicación para realizar un seguimiento del tiempo que dedicas a diferentes proyectos y configurar alarmas para recordatorios.
 
 ## Funcionalidades
 
